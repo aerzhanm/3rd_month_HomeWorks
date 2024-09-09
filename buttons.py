@@ -8,4 +8,5 @@ start = ReplyKeyboardMarkup(
     KeyboardButton('/mem'),
     KeyboardButton('/sigma.002'),
     KeyboardButton('/garri_potter'),
-    KeyboardButton('/music'))
+    KeyboardButton('/music')
+)

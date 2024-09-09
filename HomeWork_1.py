@@ -3,7 +3,7 @@ from aiogram.utils import executor
 from config import bot, dp, admin
 from handlers import commands, echo
 from buttons import start
-from aiogram import types
+
 
 
 async def on_startup(_):
