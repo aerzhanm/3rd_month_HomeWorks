@@ -1,11 +1,9 @@
 from aiogram import types, Dispatcher
 import os
-from buttons import start
 
 
-async def hi(message: types.Message):
-    await message.answer(text='привет, я ваш персональный бот. Чем могу помочь?'
-                         )
+
+
 
 
 async def sigma(message: types.Message):
@@ -46,8 +44,9 @@ async def starts(message: types.Message):
 
 
 def register_commands(dp: Dispatcher):
-    dp.register_message_handler(hi, commands="hi"),
+
     dp.register_message_handler(sigma, commands="sigma"),
     dp.register_message_handler(sigma002, commands="sigma002"),
-    dp.register_message_handler(music_handler, commands="music_handler"),
+    dp.register_message_handler(music_handler, commands="music"),
     dp.register_message_handler(starts, commands="start")
+    dp.register_message_handler(garry_potter, commands="potter")

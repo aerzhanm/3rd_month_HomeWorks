@@ -10,4 +10,4 @@ async def echo(message: types.Message):
 
 
 def register_echo(dp: Dispatcher):
-    dp.register_message_handler(echo, commands="echo")
+    dp.register_message_handler(echo)
