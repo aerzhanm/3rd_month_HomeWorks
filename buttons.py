@@ -1,6 +1,6 @@
-'''from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-start = ReplyKeyboardMarkup(
+startt = ReplyKeyboardMarkup(
     resize_keyboard=True,
     row_width=2
 ).add(
@@ -9,7 +9,7 @@ start = ReplyKeyboardMarkup(
     KeyboardButton('/sigma.002'),
     KeyboardButton('/garri_potter'),
     KeyboardButton('/music')
-)'''
+)
 
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
@@ -53,3 +53,58 @@ start_test_1.add(
 )
 
 # ===============================================================
+
+
+sizes=ReplyKeyboardMarkup().add(
+    KeyboardButton(text='XL'),
+    KeyboardButton(text='XXL'),
+    KeyboardButton(text='3XL'),
+    KeyboardButton(text='M'),
+    KeyboardButton(text='L')
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
