@@ -63,6 +63,8 @@ async def load_photo(m: types.Message, state: FSMContext):
     await state.finish()  # Завершаем состояние
 
 
+
+
 def register_fsm(dp: Dispatcher):
     dp.register_message_handler(start_fsm_reg, commands=['reg'], state='*')
     dp.register_message_handler(load_fullname, state=FSM_reg.fullname)

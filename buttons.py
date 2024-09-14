@@ -55,7 +55,7 @@ start_test_1.add(
 # ===============================================================
 
 
-sizes=ReplyKeyboardMarkup().add(
+sizes = ReplyKeyboardMarkup().add(
     KeyboardButton(text='XL'),
     KeyboardButton(text='XXL'),
     KeyboardButton(text='3XL'),
@@ -63,48 +63,12 @@ sizes=ReplyKeyboardMarkup().add(
     KeyboardButton(text='L')
 )
 
+submit_button = ReplyKeyboardMarkup(resize_keyboard=True,
+                                 row_width=2).add(
+    KeyboardButton(text='Да'),
+    KeyboardButton(text='Нет')
+)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+cen_button = ReplyKeyboardMarkup(resize_keyboard=True).add(
+    KeyboardButton(text='отмена')
+)

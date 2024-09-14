@@ -4,11 +4,14 @@ from config import bot, dp, admin
 from handlers import commands, echo, quiz, game, FSM_store, FSM_registration
 from buttons import start
 from aiogram import types
+from db import queries, db_main
 
 
 async def on_startup(_):
     for i in admin:
-        await bot.send_message(chat_id=i, text='бот включен', )
+        await bot.send_message(chat_id=i, text='бот включен')
+
+        await db_main.sql_create()
 
 
 @dp.message_handler(commands=['start'])
@@ -23,6 +26,7 @@ quiz.register_quiz(dp)
 game.register_game(dp)
 FSM_registration.register_fsm(dp)
 FSM_store.register_store(dp)
+
 
 echo.register_echo(dp)
 
