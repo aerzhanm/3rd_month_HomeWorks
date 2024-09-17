@@ -69,6 +69,7 @@ submit_button = ReplyKeyboardMarkup(resize_keyboard=True,
     KeyboardButton(text='Нет')
 )
 
-cen_button = ReplyKeyboardMarkup(resize_keyboard=True).add(
-    KeyboardButton(text='отмена')
+cancel_button = ReplyKeyboardMarkup(resize_keyboard=True).add(
+    KeyboardButton('Отмена')
 )
+
