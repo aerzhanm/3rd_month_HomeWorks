@@ -17,11 +17,25 @@ INSERT_PRODUCTS_QUERY = """
 CREATE_TABLE_PRODUCT_DETAIL = '''
 CREATE TABLE IF NOT EXISTS product_detailes(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-products_id VARCHAR(255),
+product_id VARCHAR(255),
 category VARCHAR(255),
-info_product TEXT
+info_product VARCHAR(255)
 )
 '''
 
 INSERT_PRODUCT_DETAIL = '''
-INSERT INTO product_detailes(products_id, category, info_product) VALUES (?, ?, ?)'''
+INSERT INTO product_detailes(product_id, category, info_product)
+ VALUES (?, ?, ?)
+'''
+
+CREATE_TABLE_PRODUCT_COLLECTION = '''
+CREATE TABLE IF NOT EXISTS product_collection(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+product_id VARCHAR(255),
+collection VARCHAR(255)
+)
+'''
+
+INSERT_INTO_PRODUCT_COLLECTION = '''
+INSERT INTO product_collection(product_id, collection)
+VALUES (?, ?)'''

@@ -14,9 +14,9 @@ class FSM_Store(StatesGroup):
     name_products = State()
     size = State()
     category = State()
+    collection = State()
     price = State()
     product_id = State()
-
     info_product = State()
     photo_products = State()
     submit = State()
@@ -47,7 +47,15 @@ async def load_category(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['category'] = message.text
 
-    await message.answer('Введите цену товара: ')
+    await message.answer('Введите  коллекцию: ')
+    await FSM_Store.next()
+
+
+async def load_collectoin(message: types.Message, state: FSMContext):
+    async with state.proxy() as data:
+        data['collection'] = message.text
+
+    await message.answer('Введите цену тавара:')
     await FSM_Store.next()
 
 
@@ -85,6 +93,8 @@ async def load_photo(message: types.Message, state: FSMContext):
         caption=f'Название/Бренд товара: {data["name_products"]}\n'
                 f'Размер товара: {data["size"]}\n'
                 f'Категория товара: {data["category"]}\n'
+                f'Коллекция: {data["collection"]}\n'
+                f'информация: {data["info_product"]}'
                 f'Стоимость: {data["price"]}\n'
                 f'Артикул: {data["product_id"]}\n',
         reply_markup=buttons.submit_button)
@@ -105,12 +115,17 @@ async def submit(message: types.Message, state: FSMContext):
                 product_id=data['product_id'],
                 photo=data['photo']
             )
-
-            await db_main.insert_product_detail(
-                products_id=data['products_id'],
+            await db_main.products_details(
+                product_id=data['product_id'],
                 category=data['category'],
                 info_product=data['info_product']
             )
+
+            await db_main.products_collection(
+                product_id=data['product_id'],
+                collection=data['collection']
+            )
+
             await state.finish()
 
     elif message.text == 'Нет':
@@ -138,6 +153,7 @@ def register_store(dp: Dispatcher):
     dp.register_message_handler(load_name, state=FSM_Store.name_products)
     dp.register_message_handler(load_size, state=FSM_Store.size)
     dp.register_message_handler(load_category, state=FSM_Store.category)
+    dp.register_message_handler(load_collectoin, state=FSM_Store.collection)
     dp.register_message_handler(load_price, state=FSM_Store.price)
     dp.register_message_handler(load_product_id, state=FSM_Store.product_id)
     dp.register_message_handler(load_info_product, state=FSM_Store.info_product)
