@@ -73,4 +73,4 @@ def register_admin_group(dp: Dispatcher):
     dp.register_message_handler(user_warning, commands=['warn'])
 
     dp.register_message_handler(pin_message, text='!pin')
-    dp.register_message_handler(filter_words)
+

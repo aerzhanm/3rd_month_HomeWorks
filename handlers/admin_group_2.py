@@ -23,6 +23,12 @@ async def filter_words(message: types.Message):
             break
 
 
+
+hello = ['hello', 'hi', 'привет', 'кандай', 'здарово']
+
+
+
+
 user_warnings = {}
 
 async def user_warning(message: types.Message):
@@ -57,5 +63,7 @@ def register_admin_group(dp: Dispatcher):
                                 content_types=[types.ContentType.NEW_CHAT_MEMBERS])
 
     dp.register_message_handler(user_warning, commands=['warn'])
-
     dp.register_message_handler(filter_words)
+
+
+
